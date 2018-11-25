@@ -85,7 +85,7 @@ public class Usertest  extends BaseApi {
     String pwd=(String)result.get("pwd");
     System.out.println("用户名"+user_name);
     System.out.println("密码"+pwd);
-
+    System.out.println();
     LockReq lockReq=new LockReq();
     lockReq.setUserName(user_name);
     Allure.addAttachment("请求报文",JSON.toJSONString(lockReq));
