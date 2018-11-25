@@ -7,7 +7,6 @@ import com.guoyasoft.gyautotest.api.bean.user.login.LoginResp;
 import com.guoyasoft.gyautotest.api.bean.user.signUp.SignUpReq;
 import com.guoyasoft.gyautotest.api.bean.user.signUp.SignUpResp;
 import com.guoyasoft.gyautotest.api.common.BaseApi;
-import com.guoyasoft.gyautotest.api.service.user.UserApi;
 import com.guoyasoft.gyautotest.tools.CSVReader;
 import com.guoyasoft.gyautotest.tools.JdbcTools;
 import com.guoyasoft.gyautotest.tools.PinYinTools;
@@ -22,14 +21,7 @@ import org.testng.annotations.Test;
 
 public class UserTest extends BaseApi {
 
-  @Test
-  public void loginTest(){
-    LoginReq loginReq=new LoginReq();
-    loginReq.setUserName("xw123456");
-    loginReq.setPwd("a123456");
-    UserApi userApi=new UserApi();
-    LoginResp loginResp= (LoginResp) httpTools.sendHttpJsonAPI(baseUrl+"/user/login",loginReq,LoginResp.class);
-  }
+
 
   @Test
   public void signUpTest(){
@@ -45,13 +37,6 @@ public class UserTest extends BaseApi {
     SignUpResp signUpResp=(SignUpResp)httpTools.sendHttpJsonAPI(prop.getProperty("api.host.baseurl")+"/user/signup",signUpReq, SignUpResp.class);
   }
 
-
-
-  public void signUpFlowTest(){
-    UserApi userApi=new UserApi();
-    userApi.signUp();
-    userApi.changePwd();
-  }
 
   @Test
   public void changePwd(){
