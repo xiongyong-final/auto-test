@@ -18,6 +18,7 @@ public class LianxiTest extends BaseUI {
         driver.findElement(By.xpath("//div[@class=\"el-submenu__title\"and contains(text(),\"组件\")]")).click();
         waiting(driver.findElement(By.xpath("//div[@class=\"el-submenu__title\"and contains(text(),\"组件\")]")));
         addScreenshot2Allure("组件");
+
         sleep(1);
         driver.findElement(By.xpath("//li[@role=\"menuitem\" and contains(text(),\"双向绑定\")]")).click();
         addScreenshot2Allure("绑定");
