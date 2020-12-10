@@ -13,6 +13,9 @@ public class DealerTest extends BaseUI {
         driver.findElement(By.xpath("//input[@placeholder=\"密码\"]")).sendKeys("Pass1234");
         driver.findElement(By.xpath("//input[@placeholder=\"验证码\"]")).sendKeys("Pass1234");
         sleep(1);
+        driver.findElement(By.xpath("//input[@class=\"easyui-linkbutton c8 l-btn l-btn-small\"]")).click();
+        sleep(1);
+
 
 
     }

@@ -44,7 +44,7 @@ public class SgmCreatePage extends BaseUI {
 
     @FindBy(xpath = "//input[@placeholder=\"请输入0或10的整数倍\"]")
     private  WebElement gongshi;//工时按钮
-    public void inputgongshi(String time){
+    public void inputtime(String time){
         sendKeys(gongshi,time);
     }
 
@@ -66,14 +66,24 @@ public class SgmCreatePage extends BaseUI {
         click(show);
     }
 
-    @FindBy(xpath = "//button[@class=\"addAccessoriesBtn ivu-btn ivu-btn-primary\"]")
+        @FindBy(xpath = "//div[@class=\"templateCreation_body_accessoriesInformation\"]/div[2]/div/div[2]/button/span[(text()=\"添加配件\")]")
     private WebElement addSku;//添加配件按钮
-    public void addsku(){
-        click(addSku);
-    }
+    public void addsku(){ click(addSku); }
 
-    @FindBy(xpath = "//input[@id=\"externalCode\"]")
-    private WebElement inputexternalCode;//配件代码输入框
+    @FindBy(xpath = "//div[@class=\"templateCreation_body_accessoriesInformation\"]/div[3]/div/div[2]/button/span[(text()=\"添加配件\")]")
+    private WebElement addSku2;//分类2配件按钮
+    public void addsku2(){ click(addSku2); }
+
+    //div[@class="templateCreation_body_accessoriesInformation"]/div[3]/div/div[2]/button/span[(text()="添加配件")]
+
+    @FindBy(xpath = "//span[(text()=\"添加配件分类\")]")
+    private WebElement addSkutag;//添加配件分类按钮
+    public void addskutag(){ click(addSkutag); }
+
+
+
+    @FindBy(xpath = "//input[@class=\"externalCode\"]")
+    private WebElement inputexternalCode;//创建页配件代码输入框
     public  void  inputExternalCode(String code){
         sendKeys(inputexternalCode,code);
     }
@@ -90,11 +100,21 @@ public class SgmCreatePage extends BaseUI {
         click(externinput);
     }
 
-    @FindBy(xpath = "//button[@class=\"btn disabled\"]")
-    private  WebElement addbtn;//配件添加按钮
-    public void addBtn(){
-        click(addbtn);
+    @FindBy(xpath = "//button[(text()=\"添加\")]")
+    private  WebElement skuaddbtn;//配件添加按钮
+    public void skuaddBtn(){
+        click(skuaddbtn);
     }
+
+    @FindBy(xpath = "//button[(text()=\"取消\")]")
+    private  WebElement skucancelbtn;//配件取消按钮
+    public void skucancelBtn(){
+        click(skucancelbtn);
+    }
+
+    @FindBy(xpath = "//div[@class=\"middle\"]//div[@class=\"ivu-table-wrapper\"]/div/div[@class=\"ivu-table-header\"]/table/thead/tr/th/div/label")
+    private WebElement skuselect;//配件全选
+    public void  skuSelect(){click(skuselect);}
 
 
 

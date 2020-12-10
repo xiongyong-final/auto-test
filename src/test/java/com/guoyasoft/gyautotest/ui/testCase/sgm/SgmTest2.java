@@ -25,7 +25,7 @@ public class SgmTest2 extends BaseUI {
         SgmCreatePage sgmCreatePage=PageFactory.initElements(driver,SgmCreatePage.class);
         sgmCreatePage.sendNameDesc(""+name,""+name);
         sleep(1);
-        sgmCreatePage.inputgongshi("100");
+        sgmCreatePage.inputtime("100");
         sleep(1);
         //sgmCreatePage.chan();
         driver.findElement(By.xpath("//span[@class=\"ivu-checkbox\"]/input")).click();//勾选渠道
@@ -54,9 +54,8 @@ public class SgmTest2 extends BaseUI {
 
     //添加配件保存
     @Test
-    public void test2(){
+    public void creatTemp1(){
         int name=(int)(Math.random()*1000000+1);
-
 
         driver.get("https://msc-qa.ssp.saic-gm.com");
         SgmLoginPage sgmLoginPage= PageFactory.initElements(driver, SgmLoginPage.class);
@@ -64,11 +63,72 @@ public class SgmTest2 extends BaseUI {
         sleep(1);
         sgmLoginPage.sizeLogin();
         sleep(1);
-
-
+        SgmCreatePage sgmCreatePage=PageFactory.initElements(driver,SgmCreatePage.class);
+        sgmCreatePage.sendNameDesc("测试"+name,"测试"+name);
+        sgmCreatePage.addsku();
+        sgmCreatePage.inputExternalCode("1");
+        sgmCreatePage.externalCodeSubmit();
+        sleep(2);
+        sgmCreatePage.skuSelect();
+        sleep(1);
+        sgmCreatePage.skuaddBtn();
+        sleep(1);
+        sgmCreatePage.skucancelBtn();
+        sleep(1);
+        sgmCreatePage.inputtime("1000");
+        sgmCreatePage.save();
+        sleep(1);
+        sgmCreatePage.confirm();
+        sleep(1);
+        sgmCreatePage.inputname("测试"+name);
+        sgmCreatePage.search1();
+        sgmCreatePage.show();
+        sleep(2);
+        String code=driver.findElement(By.xpath("//div[@class=\"app-body\"]/div[@class=\"main\"]/div/div[1]/div[@class=\"item\"]/div[4]/div[1]/span/label")).getText();//获取页面信息（维修项目名称）
+        System.out.println("获取到的是："+code);
+        Assert.assertEquals(code.contains(""+name),true);
 
     }
 
+//添加分类和配件
+    @Test
+    public void creatTemp2(){
+        int name=(int)(Math.random()*1000000+1);
 
+        driver.get("https://msc-qa.ssp.saic-gm.com");
+        SgmLoginPage sgmLoginPage= PageFactory.initElements(driver, SgmLoginPage.class);
+        sgmLoginPage.accLogin("apptest22","Pass1234");
+        sleep(1);
+        sgmLoginPage.sizeLogin();
+        sleep(1);
+        SgmCreatePage sgmCreatePage=PageFactory.initElements(driver,SgmCreatePage.class);
+        sgmCreatePage.sendNameDesc("测试"+name,"测试"+name);
+        sgmCreatePage.addsku();
+        sgmCreatePage.inputExternalCode("1");
+        sgmCreatePage.externalCodeSubmit();
+        sleep(2);
+        sgmCreatePage.skuSelect();
+        sleep(1);
+        sgmCreatePage.skuaddBtn();
+        sleep(1);
+        sgmCreatePage.skucancelBtn();
+        sleep(1);
+        sgmCreatePage.addskutag();
+        sgmCreatePage.addsku2();
+        sgmCreatePage.inputExternalCode("1");
+        sgmCreatePage.externalCodeSubmit();
+        sleep(2);
+        sgmCreatePage.skuSelect();
+        sleep(1);
+        sgmCreatePage.skuaddBtn();
+        sleep(1);
+        sgmCreatePage.skucancelBtn();
+        sleep(1);
+        sgmCreatePage.inputtime("1000");
+        sgmCreatePage.save();
+        sleep(1);
+
+
+    }
 
 }
