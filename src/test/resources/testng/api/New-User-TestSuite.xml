@@ -12,7 +12,7 @@
           <include name="login"/>
         </methods>
       </class>
-      <class name="com.guoyasoft.gyautotest.api.gyApi.testCase.account.AccountTest">
+      <class name="autotest.api.gyApi.testCase.account.AccountTest">
         <methods>
           <!--自定义内容4：要执行/排除的方法，以及执行顺序（从上到下）-->
           <include name="getAccInfo"/>
